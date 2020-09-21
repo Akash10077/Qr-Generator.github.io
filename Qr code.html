@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    	<title>QR-Code Generator</title>
+
+
+		<style>
+			body{
+				
+			color: white;
+			}
+    		</style>
+				</head>
+		<body style="background-image:linear-gradient(to right,#212F3D,white)";>
+        <h2 style="text-align: center;margin:0px; background:rgb(255,250,250,0.2) ;">QR Code Generator</h2>
+     
+	<br><br>
+	<div class="container-fluid">   
+		<div class="row">
+		<div class=" col-md-8 mr-md-auto">
+
+		<center> 
+        <textarea id="qr-text" type="text" placeholder="Enter Your Text" rows="10" cols="55" style="background:#212F3D ;color: white;border: 0px"></textarea>
+                <br/><br>
+<!--         <input id="xcolor" type="text" name="color" placeholder="Background color/hexdecimal code" style="width:300px"><br><br> -->
+        <button id="qr-btn" class="btn btn-danger" onclick="generateQRCode()">Create QR Code</button><br><br>
+           <br></center> </div>
+            
+             <div class="card  col-md-3 " style="box-shadow: 3px 3px rgb(0,0,0,0.5); color:black ; border-radius: 15px ;">
+             	<center>
+             		<br>
+         	        <p id="qr-result">This is deault QR code:</p>
+        <p id="qr-new"></p>
+     
+     <div id="printQr"  >
+        <canvas id="qr-code" ></canvas> 
+            </div><br><br>     
+     <p style="font-size: 16px;">Save QR-Code by Right click and click save image </p></center> </div>
+ <div class="col-md-1"></div></div>
+
+ </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+        		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        
+		<script>
+								(function(){
+                    qr = new QRious({
+                    element: document.getElementById('qr-code'),
+                    size: 200,
+                    background :"rgb(255,250,250)",
+                    value: 'ITS YOUR QR-GENERATOR'
+                });
+            })();
+           
+            function generateQRCode() {
+              var qrtext = document.getElementById("qr-text").value;
+              document.getElementById("qr-new").innerHTML="Your QR-Code has been generated";
+   
+              document.getElementById("qr-result").innerHTML = "QR code for " + qrtext +":";
+                 
+                //  let xcolor = document.getElementById("xcolor").value
+                // if(!xcolor)
+                //   xcolor="white";
+                qr.set({
+                     foreground: 'black',
+                     //background : xcolor,
+                     size: 200,
+                     value: qrtext
+                 });
+             }
+                 
+            
+            
+		</script>
+
+	</body>
+</html>
