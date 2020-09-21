@@ -13,7 +13,7 @@
 
 		<style>
 			body{
-				
+			
 			color: white;
 			}
     		</style>
@@ -27,7 +27,7 @@
 		<div class=" col-md-8 mr-md-auto">
 
 		<center> 
-        <textarea id="qr-text" type="text" placeholder="Enter Your Text" rows="10" cols="55" style="background:#212F3D ;color: white;border: 0px"></textarea>
+        <textarea id="qr-text" type="text" placeholder="Enter Your Text" rows="10" cols="50" style="background:#212F3D ;color: white;border: 0px; max-width: 100%;"></textarea>
                 <br/><br>
 <!--         <input id="xcolor" type="text" name="color" placeholder="Background color/hexdecimal code" style="width:300px"><br><br> -->
         <button id="qr-btn" class="btn btn-danger" onclick="generateQRCode()">Create QR Code</button><br><br>
@@ -39,8 +39,8 @@
          	        <p id="qr-result">This is deault QR code:</p>
         <p id="qr-new"></p>
      
-     <div id="printQr"  >
-        <canvas id="qr-code" ></canvas> 
+     <div id="printQr" style="max-width: 80%" >
+        <canvas id="qr-code" style="max-width: 70%; max-height: 70%;" ></canvas> 
             </div><br><br>     
      <p style="font-size: 16px;">Save QR-Code by Right click and click save image </p></center> </div>
  <div class="col-md-1"></div></div>
